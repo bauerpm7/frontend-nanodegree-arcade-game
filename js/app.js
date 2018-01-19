@@ -1,4 +1,4 @@
-
+"use strict";
 /**
  *Makes sure game is paused when the page is initially loaded
  */
@@ -202,12 +202,12 @@ Player.prototype.lose = function(){
 
 // Changes the css display property for the winningModal from none to block
 Player.prototype.winningMessage = function(){
-    $('#winningModal').css('display','block')
+    $('.winningModal').css('display','block')
 }
 
 // Changes the css display property for the losingModal from none to block
 Player.prototype.losingMessage = function(){
-    $('#losingModal').css('display','block')
+    $('.losingModal').css('display','block')
 }
 
 // Closes either winning or losing modal window when called
@@ -217,7 +217,7 @@ Player.prototype.closeModal = function(){
 
 // Closes the Starting modal when called
 Player.prototype.closeStartingModal = function() {
-    $('#startingModal').css('display','none')
+    $('.startingModal').css('display','none')
 }
 
 //resets score, lives, enemy position, player position etc. when player restarts game after winning or losing

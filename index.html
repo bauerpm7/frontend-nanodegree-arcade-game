@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Added the font Concert One -->
-    <link href='https://fonts.googleapis.com/css?family=Concert One' rel='stylesheet'>
-    <!--Add in Jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<meta charset="UTF-8">
+	<title>Effective JavaScript: Frogger</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Added the font Concert One -->
+	<link href='https://fonts.googleapis.com/css?family=Concert One' rel='stylesheet'>
+	<!--Add in Jquery-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Udacity Frogger</h1>
-    </header>
+	<header>
+		<h1>Udacity Frogger</h1>
+	</header>
 	<!-- The Modal for winners -->
-    <div id="winningModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
+	<div class="winningModal modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<h1 class="modal-text"><strong>You win!</strong></h1>
+			<div class= "flex-container">
+				<div class="buttons modal-text">
+					<div class="play-again-button">
+						<button type="button" class="play">Play again</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- The Modal for losers -->
+	<div class="losingModal modal">
+		<!-- Modal content -->
+		<div class="modal-content">
 
-        <h1 class="modal-text"><strong>You win!</strong></h1>
-        <div class= "flex-container">
-            <div class="buttons modal-text">
-                <div class="play-again-button">
-                    <button type="button" class="play">Play again</button>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-    <!-- The Modal for losers -->
-    <div id="losingModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-      
-        <h1 class="modal-text"><strong>You lose!</strong></h1>
-        <div class= "flex-container">
-            <div class="buttons modal-text">
-                <div class="play-again-button">
-                    <button type="button" class="play">Play again</button>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-    <!-- Start Game Modal -->
-    <div id="startingModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
+			<h1 class="modal-text"><strong>You lose!</strong></h1>
+			<div class= "flex-container">
+				<div class="buttons modal-text">
+					<div class="play-again-button">
+						<button type="button" class="play">Play again</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Start Game Modal -->
+	<div class="startingModal modal">
+		<!-- Modal content -->
+		<div class="modal-content">
 
-        <h1 class="modal-text"><strong>Welcome to Udacity Frogger!</strong></h1>
-        <div class= "flex-container">
-            <h2>Rules</h2>
-            <ul>
-                <li>To move your character use the arrow keys.</li>
-                <li>You have 3 lives.  Lose a life if you are hit by a bug.</li>
-                <li>Score 10 points for making it across the road.</li>
-                <li>Score 20 points for collecting stars.</li>
-                <li>Score 200 points to win the game.</li>
-            </ul>
-            <div class="buttons modal-text">
-                <div class="start-game-button">
-                    <button type="button" class="start">Start Game</button>
-                </div>
-            </div>
-        </div>
-      </div>
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
+			<h1 class="modal-text"><strong>Welcome to Udacity Frogger!</strong></h1>
+			<div class= "flex-container">
+				<h2>Rules</h2>
+				<ul>
+					<li>To move your character use the arrow keys.</li>
+					<li>You have 3 lives.  Lose a life if you are hit by a bug.</li>
+					<li>Score 10 points for making it across the road.</li>
+					<li>Score 20 points for collecting stars.</li>
+					<li>Score 200 points to win the game.</li>
+				</ul>
+				<div class="buttons modal-text">
+					<div class="start-game-button">
+						<button type="button" class="start">Start Game</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/resources.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/engine.js"></script>
 </body>
 </html>

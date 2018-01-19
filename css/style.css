@@ -16,13 +16,11 @@ h2 {
  
 }
 
-
 ul {
 
     font-size: 1.75em;
     list-style: none;
 }
-
 
 .modal {
     display: none; /* Hidden by default */
@@ -35,7 +33,6 @@ ul {
     overflow: auto; /* Enable scroll if needed */
     /background-color: rgb(0,0,0); /* Fallback color */
     /background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    
 }
 
 /* Modal Content/Box */
@@ -47,13 +44,14 @@ ul {
     border: 1px solid #888;
     width: 70%; 
     border-radius: 10px;
-    
 }
+
 .flex-container{
     display:flex;
     justify-content: center;
     flex-direction: column;
 }
+
 .flex-container h2 i{
     font-size:80px;
 }
@@ -61,6 +59,7 @@ ul {
 .modal-text {
     text-align:center;
 }
+
 .modal-content h1{
     font-size:90px;
 }
@@ -71,10 +70,11 @@ ul {
     padding:50px 0 50px 0;
 }  
 
-#startingModal{
+.startingModal{
     display: block;
 }
-#startingModal h1{
+
+.startingModal h1{
     font-size: 3em;
 }
 
