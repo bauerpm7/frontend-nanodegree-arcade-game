@@ -2,7 +2,7 @@
 
 ## How to Play This Game
 
-* To load the game you can either download or clone the files into the same folder and run index.html or simply click [here](https://www.google.com)  
+* To load the game you can either download or clone the files into the same folder and run index.html or simply click [here](https://bauerpm7.github.io/frontend-nanodegree-arcade-game/).
 
 ## Rules of the Game
 * The objective of the game is to score 200 points
