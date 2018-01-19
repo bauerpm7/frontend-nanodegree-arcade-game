@@ -7,7 +7,7 @@
 ## Rules of the Game
 * The objective of the game is to score 200 points
 * You have three lives
-* Move your character across the screen using the arrow keys.
+* Move your character across the screen using the arrow keys
 * If you collide with a bug you lose a life and go back to the start
 * If you make it across the road you score 10 points and go back to the start
 * If you collect a star you score 20 points
