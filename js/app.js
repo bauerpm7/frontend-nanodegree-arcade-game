@@ -23,7 +23,7 @@ const Enemy = function() {
  */
 Enemy.prototype.getRandomSpeed = function(max) {
     return Math.floor(Math.random() * max) + 125;
-}
+};
 
 /**
  *This function randomly selects a row for each of the enemies
@@ -39,8 +39,8 @@ Enemy.prototype.setRow = function(){
         
         else
             this.y = 226;
-        return this.y
-}
+        return this.y;
+};
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -75,7 +75,7 @@ const Player = function(x,y) {
         lose: 'sounds/loser.wav',
         win: 'sounds/win.mp3'
     };
-}
+};
 
 /**This function checks for various state changes in the game including:
  * Whether the player has made it across the road
@@ -87,12 +87,12 @@ Player.prototype.update = function(){
     this.crossed();
     this.win();
     this.lose();
-}
+};
 // Draws the player on the screen
 Player.prototype.render = function() {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 /**
  * This function handles the keyboard input.  Based it sets the arrow keys as defined below
@@ -100,25 +100,25 @@ Player.prototype.render = function() {
  * the function takes one parameter: key
  */
 Player.prototype.handleInput = function(key) {
-    this.playSound(this.sounds.hop)
+    this.playSound(this.sounds.hop);
     switch (key) {
         case 'left':
-            if (this.x >10 && !player.paused){
+            if (this.x >10 && !this.paused){
                 this.x += -101;
             }
             break;
         case 'right':
-            if(this.x < 400 && !player.paused) {
+            if(this.x < 400 && !this.paused) {
                 this.x += 101;
             }
             break;
         case 'up':
-            if (this.y > -10 && !player.paused) {
+            if (this.y > -10 && !this.paused) {
                 this.y += -83;
             }
             break;
         case 'down':
-            if (this.y < 405 && !player.paused){
+            if (this.y < 405 && !this.paused){
                 this.y += 83;
             }
             break;
@@ -127,30 +127,29 @@ Player.prototype.handleInput = function(key) {
             this.y += 0;
     }
 
-}
+};
 //This function checks player collisions with the bugs.
 Player.prototype.checkCollision = function(){
     for (let e = 0; e < 4; e++){
-        if (allEnemies[e].x < player.x + 80 &&
-            allEnemies[e].x + 80 > player.x &&
-            allEnemies[e].y < player.y + 20 &&
-            allEnemies[e].y + 20 > player.y){
-            console.log("Collision")
+        if (allEnemies[e].x < this.x + 80 &&
+            allEnemies[e].x + 80 > this.x &&
+            allEnemies[e].y < this.y + 20 &&
+            allEnemies[e].y + 20 > this.y){
             this.resetPlayerPosition();
             lives.incrementLives();
             this.playSound(this.sounds.collision);
         }
     }
-}
+};
 
 // Checks to see if the player has made it across the road
 Player.prototype.crossed = function () {
     if (this.y <=-10){
         this.resetPlayerPosition();
         scoreBoard.incrementScore(10);
-        this.playSound(this.sounds.crossed)
+        this.playSound(this.sounds.crossed);
     }
-}
+};
 
 /**
  * Plays sounds when called
@@ -165,7 +164,7 @@ Player.prototype.playSound = function(soundFile) {
 Player.prototype.resetPlayerPosition = function (){
         this.x = 202;
         this.y = 405;
-}
+};
 
 // Calls various functions when the player wins the game by reaching 200 points.
 Player.prototype.win = function(){
@@ -175,14 +174,14 @@ Player.prototype.win = function(){
         this.resetPlayerPosition();
         star.hideStar();
         if(this.hasPlayed === false){
-            this.playSound(this.sounds.win)
+            this.playSound(this.sounds.win);
             this.hasPlayed = true;
         }
     }
     else{
-        return
+        return;
     }
-}
+};
 
 //// Calls various functions when the player loses the game by losing all three lives
 Player.prototype.lose = function(){
@@ -196,29 +195,29 @@ Player.prototype.lose = function(){
         }   
     }
     else{
-        return
+        return;
     }
-}
+};
 
 // Changes the css display property for the winningModal from none to block
 Player.prototype.winningMessage = function(){
-    $('.winningModal').css('display','block')
-}
+    $('.winningModal').css('display','block');
+};
 
 // Changes the css display property for the losingModal from none to block
 Player.prototype.losingMessage = function(){
-    $('.losingModal').css('display','block')
-}
+    $('.losingModal').css('display','block');
+};
 
 // Closes either winning or losing modal window when called
 Player.prototype.closeModal = function(){
         $('.modal').css('display','none');
-}
+};
 
 // Closes the Starting modal when called
 Player.prototype.closeStartingModal = function() {
-    $('.startingModal').css('display','none')
-}
+    $('.startingModal').css('display','none');
+};
 
 //resets score, lives, enemy position, player position etc. when player restarts game after winning or losing
 Player.prototype.resetGame = function(){
@@ -230,56 +229,56 @@ Player.prototype.resetGame = function(){
         allEnemies[e].setRow();
         allEnemies[e].speed = allEnemies[e].getRandomSpeed(250);
     }
-    player.paused = false;
-}
+    this.paused = false;
+};
 
 // Star Constructor
 const Star = function(){
     this.sprite = 'images/Star.png';
     this.randomStar();
-}
+};
 
 //Generates random x and y positions for the star
 Star.prototype.randomLocation = function(){
     this.x = Math.floor(Math.random() * 5) * 101;
     this.y = Math.ceil(Math.random() * 3) * 83 - 11;
-}
+};
 
 // Updates the star if there is a collision
 Star.prototype.update = function() {
     this.checkCollision();
-}
+};
 
 // Draws the star on the screen
 Star.prototype.render = function() {
 
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-}
+};
 
 //Checks to see if the player has 'collided' with a star and calls methods to play sound, hide the star etc.
 Star.prototype.checkCollision = function(){
-    if (star.x < player.x + 80 &&
-        star.x + 80 > player.x &&
-        star.y < player.y + 20 &&
-        star.y + 20 > player.y){
-        console.log("Collision")
+    if (this.x < player.x + 80 &&
+        this.x + 80 > player.x &&
+        this.y < player.y + 20 &&
+        this.y + 20 > player.y){
+        
         this.hideStar();
         player.playSound(player.sounds.foundStar);
         scoreBoard.incrementScore(20);
         this.randomStar();
         }
-}
+};
 
 // Hides the star when called
 Star.prototype.hideStar = function(){
     this.x = -101;
     this.y = -101;
-}
+};
 
 //Calls a method to determine the position  of a new star after waiting for 1-15 secconds
 Star.prototype.randomStar = function() {
     setTimeout(function () {star.randomLocation()}, Math.random() * 15000);
-}
+};
 
 // Scoreboard Constructor
 const ScoreBoard = function(txt) {
@@ -298,40 +297,39 @@ ScoreBoard.prototype.render = function() {
 //Increments the score when called
 ScoreBoard.prototype.incrementScore = function(points){
     this.score += points;
-    console.log (this.score)
-}
+};
 
 // Lives Constructor
 const Lives = function(txt) {
     this.txt = txt;
     this.playerLives = 3;
-}
+};
 
 //Draws the Lives object on the screen
 Lives.prototype.render = function() {
     ctx.font = "30px Concert One";
     ctx.fillStyle = "black";
-    ctx.fillText(this.txt + this.playerLives, 10, 30)
-}
+    ctx.fillText(this.txt + this.playerLives, 10, 30);
+};
 
 //Increments the players lives when called
 Lives.prototype.incrementLives = function(){
     this.playerLives--;
-}
+};
 
 
 //Event Listeners
 //Listens for the player to click the play again button in the winning or losing modal window
 $('.play').click(function playAgain(){
-    Player.prototype.closeModal();
+    player.closeModal();
     player.resetGame();
-})
+});
 
 //Listens for the player to click the Start Game button on the start game modal window
 $('.start').click(function start(){
-    Player.prototype.closeStartingModal()
+    player.closeStartingModal();
     player.paused = false;
-})
+});
 
 //Sets which keys are allowed in the game and listens for them to be pressed
 document.addEventListener('keyup', function(e) {
@@ -352,12 +350,12 @@ const enemy3 = new Enemy();
 const enemy4 = new Enemy();
 
 // Place all enemy objects in an array called allEnemies
-let allEnemies = [enemy1, enemy2, enemy3, enemy4]
+let allEnemies = [enemy1, enemy2, enemy3, enemy4];
 
 const player = new Player(202, 405);
 
-const scoreBoard = new ScoreBoard("SCORE : ");
+const scoreBoard = new ScoreBoard('SCORE : ');
 
-const lives = new Lives("LIVES : ");
+const lives = new Lives('LIVES : ');
 
 const star = new Star();
