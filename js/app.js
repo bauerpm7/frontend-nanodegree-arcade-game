@@ -277,7 +277,8 @@ Star.prototype.hideStar = function(){
 
 //Calls a method to determine the position  of a new star after waiting for 1-15 secconds
 Star.prototype.randomStar = function() {
-    setTimeout(function () {star.randomLocation()}, Math.random() * 15000);
+    let self = this;
+    setTimeout(function () {self.randomLocation();}, Math.random() * 15000);
 };
 
 // Scoreboard Constructor
